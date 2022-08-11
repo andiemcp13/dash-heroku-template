@@ -478,4 +478,4 @@ def make_boxplot(measuredropdown):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True, port=8000)
+    app.run_server(debug=True)

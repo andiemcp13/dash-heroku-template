@@ -157,9 +157,7 @@ scatter_facet.update_layout(legend=dict(
     x=0.5
 ))
 
-server = flask.Flask(__name__)
-
-app = dash.Dash(server = server, external_stylesheets=[dbc.themes.SUPERHERO])
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.SUPERHERO])
 
 app.layout = html.Div(
     [

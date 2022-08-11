@@ -157,8 +157,9 @@ scatter_facet.update_layout(legend=dict(
     x=0.5
 ))
 
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.SUPERHERO])
-server = app.server
+server = flask.Flask(__name__)
+server.secret_key = os.environ.get('secret_key', str(randint(0, 1000000)))
+app = dash.Dash(__name__, server=server, external_stylesheets=[dbc.themes.SUPERHERO])
 
 app.layout = html.Div(
     [
@@ -479,4 +480,4 @@ def make_boxplot(measuredropdown):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.server.run(debug=True, threaded=True)
